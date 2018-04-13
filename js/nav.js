@@ -10,6 +10,7 @@ $(function(){
         function () { $(".user_operate>ul").show(); },
         function () { $(".user_operate>ul").hide(); });
 
+    checkWindow();
     checkFullScreenHdr();
     
     $(".circle li:eq(0)").click(function () {
@@ -222,28 +223,48 @@ function doRotateScale(dom, angle, scale){
 }
 
 
+function checkWindow(){
+    console.log('检测屏幕高度 ' + $(window).height());
+    //在屏幕分辨率高度768像素的情况下，窗口的高度还需减去浏览器头部一些东西大概100px
+    if($(window).height() < 680){
+        $('body')[0].style.marginTop = 0;
+        $('.top-head')[0].style.marginTop = 0;
+
+        if($(window).height() <= 630)$('.center_dom')[0].style.marginTop = 0;
+        else $('.center_dom')[0].style.marginTop = 2 + 'em';
+    }else{
+        $('.center_dom')[0].style.marginTop = 6 + 'em';
+        $('body')[0].style.marginTop = 0 + 'px';
+        $('.top-head')[0].style.marginTop = 20 + 'px';
+    }
+}
+
 function onFullScreenView(){
+    var test = function(){
+        checkWindow();
+    }
     if(isFullScreen){
         $('.center_dom')[0].style.marginTop = 10 + 'em';
         $('body')[0].style.marginTop = 5 + 'em';
     }else{
-        $('.center_dom')[0].style.marginTop = 6 + 'em';
-        $('body')[0].style.marginTop = 0 + 'px';
+        setTimeout(test, 800); //直接调用checkWindow setTimeout不起作用？
     }
 }
 
-//检测用户是否按下F11全屏
+//默认进入就全屏
 var isFullScreen = false;
 function checkFullScreenHdr(){
-    $(document).on('keydown', function(e){
-        console.log(e.keyCode);
-        //var evt = event || window.event || arguments.callee.caller.arguments[0];
-        //检测F11键盘动作
-        if(e && e.keyCode == 122){
-        // if(e && e.keyCode == 49){
-            e.preventDefault();  //阻止F11默认动作
+    $(document).on('click', function(){
+        if(!isFullScreen){
             var el = document.documentElement;
             fullScreen(el); //进入全屏
+        }
+    });
+    
+    //阻止用户自己按f11的全屏动作
+    $(document).on('keydown', function(e){
+        if(e && e.keyCode == 122){
+            e.preventDefault();  //阻止F11默认动作
         }
     });
 

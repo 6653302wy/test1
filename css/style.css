@@ -580,15 +580,31 @@ nav>ul>li#sel:hover:after {
 }
 
 
-/* @media screen and (max-height:768px) {
-    body .center_dom .top-head{
-        margin-top: 0;
+@media screen and (max-width:1024px) {
+    .top-head, .center_dom, .aside-nav {
+        transform: scale(.8);
+        margin-left: -12%;
     }
-    .top-head {
-        clear:both;
-    }
-    .top02 {
-        clear:both;
-        display: inline;
-    }
-} */
+
+   .logo {
+        width: 320px;
+        float: left;
+   }
+   .nav {
+        margin-left: 8%;
+        width: 510px;
+        float: left;
+   }
+   .nav>ul>li{
+       margin: 0;
+   }
+   .user_login {
+       position: fixed;
+       right: -5%;
+       margin-left: -20px;
+       margin-right: 0;
+   }
+   .center_dom {
+       margin-top: 0;
+   }
+}

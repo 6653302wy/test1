@@ -225,18 +225,26 @@ function doRotateScale(dom, angle, scale){
 
 function checkWindow(){
     console.log('检测屏幕高度 ' + $(window).height());
-    //在屏幕分辨率高度768像素的情况下，窗口的高度还需减去浏览器头部一些东西大概100px
-    if($(window).height() < 680){
+    //屏幕分辨率为1024以下
+    if($(window).width() < 1024){
         $('body')[0].style.marginTop = 0;
         $('.top-head')[0].style.marginTop = 0;
-
-        if($(window).height() <= 630)$('.center_dom')[0].style.marginTop = 0;
-        else $('.center_dom')[0].style.marginTop = 2 + 'em';
+        $('.center_dom')[0].style.marginTop = 0;
     }else{
-        $('.center_dom')[0].style.marginTop = 6 + 'em';
-        $('body')[0].style.marginTop = 0 + 'px';
-        $('.top-head')[0].style.marginTop = 20 + 'px';
+        //在屏幕分辨率高度768像素的情况下，窗口的高度还需减去浏览器头部一些东西大概100px
+        if($(window).height() < 680){
+            $('body')[0].style.marginTop = 0;
+            $('.top-head')[0].style.marginTop = 0;
+
+            if($(window).height() <= 630)$('.center_dom')[0].style.marginTop = 0;
+            else $('.center_dom')[0].style.marginTop = 2 + 'em';
+        }else{
+            $('.center_dom')[0].style.marginTop = 6 + 'em';
+            $('body')[0].style.marginTop = 0 + 'px';
+            $('.top-head')[0].style.marginTop = 20 + 'px';
+        }
     }
+    
 }
 
 function onFullScreenView(){

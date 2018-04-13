@@ -252,8 +252,8 @@ function onFullScreenView(){
         checkWindow();
     }
     if(isFullScreen){
-        $('.center_dom')[0].style.marginTop = 10 + 'em';
-        $('body')[0].style.marginTop = 5 + 'em';
+        $('.center_dom')[0].style.marginTop = 7 + 'em';
+        $('body')[0].style.marginTop = 3 + 'em';
     }else{
         setTimeout(test, 800); //直接调用checkWindow setTimeout不起作用？
     }
@@ -334,75 +334,8 @@ function exitFullSCreen(){
         }
     });
     
-    // if (document.exitFullscreen) {  
-    //     console.log('退出全屏 - w3c');
-    //     document.exitFullscreen();  
-    //     changeView();
-    // }  
-    // else if (document.mozCancelFullScreen) { 
-    //     console.log('退出全屏 - moz'); 
-    //     document.mozCancelFullScreen();  
-    //     changeView();
-    // }  
-    // else if (document.webkitCancelFullScreen) {  
-    //     console.log('退出全屏 - webkit ');
-    //     document.webkitCancelFullScreen();  
-    //     changeView();
-    // }  
-    // else if (document.msExitFullscreen) { 
-    //     console.log('退出全屏 - ms'); 
-    //     document.msExitFullscreen();  
-    //     changeView();
-    // }
-    
-    
 }
 
-// $('#aside-nav').click(move());
-// $('#aside-nav').mouseout(back());
-
-
-    // var offsetX = 80;  //要水平移动的距离
-    // var moveOffset = 0;  //当前已经移动的距离
-    // var step = 2;   //每次移动的像素
-
-    // var firPos = parseInt($('.menu-first')[0].style.top); //第一个球的原始位置
-    // var secPos = parseInt($('.menu-second')[0].style.left); //第2个球的原始位置
-    // var thirPos = parseInt($('.menu-third')[0].style.left); //第3球的原始位置
-    // var fourPos = parseInt($('.menu-fourth')[0].style.bottom); //第4球的原始位置
-
-    // function move(){
-    //     console.log($('.menu-first'));
-    //     if(moveOffset < offsetX){
-    //         $('.menu-first')[0].style.top = firPos + step + 'px';
-    //         $('.menu-second')[0].style.left = secPos + step + 'px';
-    //         $('.menu-third')[0].style.left = thirPos + step + 'px';
-    //         $('.menu-fourth')[0].style.bottom = fourPos + step + 'px';
-
-    //         moveOffset += step;
-    //     }else {
-    //         clearTimeout(time1);
-    //         offsetX = 80;
-    //         moveOffset = 0;
-    //     }
-    //     var time1 = setTimeout(move, 5);
-    // }
-
-    // function back(){
-    //     if(moveOffset < offsetX){
-    //         $('.menu-first')[0].style.top = parseInt($('.menu-first')[0].style.top) - step + 'px';
-    //         $('.menu-second')[0].style.left = parseInt($('.menu-second')[0].style.left) - step + 'px';
-    //         $('.menu-third')[0].style.left = parseInt($('.menu-third')[0].style.left) - step - 'px';
-    //         $('.menu-fourth')[0].style.bottom = parseInt($('.menu-fourth')[0].style.bottom) - step + 'px';
-
-    //         moveOffset += step;
-    //     }else {
-    //         clearTimeout(time2);
-    //         offsetX = 80;
-    //         moveOffset = 0;
-    //     }
-    //     var time2 = setTimeout(back, 5)
-    // }
 
 
 

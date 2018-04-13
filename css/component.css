@@ -1,0 +1,51 @@
+﻿@charset "utf-8";
+/* General styles for all menus */
+.cbp-spmenu {
+    background: #FFFFFF;
+    position: fixed;
+    box-shadow: 0px 0px 10px #E1E1E1;
+    -moz-box-shadow: 0px 0px 10px #E1E1E1;
+    -webkit-box-shadow: 0px 0px 10px #E1E1E1;
+}
+
+.cbp-spmenu-vertical {
+    width: 350px;
+    height: 550px;
+    top: 100px;
+    z-index: 1000;
+}
+
+.cbp-spmenu-left {
+    left: -360px;
+}
+    .cbp-spmenu-left.cbp-spmenu-open {
+        left: 10px;
+        box-shadow: 0px 0px 10px #E1E1E1;
+        -moz-box-shadow: 0px 0px 10px #E1E1E1;
+        -webkit-box-shadow: 0px 0px 10px #E1E1E1;
+    }
+
+/* Push classes applied to the body */
+.cbp-spmenu-push {
+    overflow-x: hidden;
+    position: relative;
+    left: 0;
+}
+/* Transitions */
+.cbp-spmenu,.cbp-spmenu-push {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+.showLeft {
+    background: #FFFFFF;
+    position: fixed;
+    box-shadow: 0px 0px 10px #E1E1E1;
+    -moz-box-shadow: 0px 0px 10px #E1E1E1;
+    -webkit-box-shadow: 0px 0px 10px #E1E1E1;
+    top:100px;
+    left:20px;
+    display:block;
+    width:40px;
+    height:40px;
+}

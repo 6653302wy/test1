@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Blueprint:点击按钮从上下左右弹出的导航菜单</title>
+
+    <link rel="stylesheet" type="text/css" href="css/default.css" />
+
+    <!--必要样式-->
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+
+</head>
+
+<body  >
+
+<div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+ 
+</div>
+	
+<div class="container">
+	
+	<div style="height:75px;"></div>
+	
+	<div class="main">
+		<section>
+ 
+			<!-- Class "cbp-spmenu-open" gets applied to menu -->
+			<button id="showLeft">显示/隐藏 左侧遮罩弹出</button>
+ 
+		</section>
+ 
+	</div>
+	
+</div>
+        
+
+
+<script type="text/javascript" src="js/classie.js"></script>
+<script type="text/javascript">
+//var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+//	showLeft = document.getElementById( 'showLeft' ),
+//	body = document.body;
+
+//showLeft.onclick = function() {
+//    classie.toggle(menuLeft, 'cbp-spmenu-open');
+//	//disableOther( 'showLeft' );
+//    };
+    $("#showLeft").bind('click', function () {
+        if ($("#cbp-spmenu-s1").hasClass("cbp-spmenu-open")) {
+            $("#cbp-spmenu-s1").removeClass("cbp-spmenu-open");
+        }
+        else {
+            $("#cbp-spmenu-s1").addClass("cbp-spmenu-open");
+        }
+    })
+ 
+</script>
+
+</body>
+</html>

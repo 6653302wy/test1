@@ -148,8 +148,6 @@ a {
     top: 0;
     width: 100%;
     background: none;
-    margin-top: 20px;
-    /* margin-left: -3em; */
 }
 
 .shadow {
@@ -318,7 +316,7 @@ nav>ul>li#sel:hover:after {
     margin: 5px;
     background-color: #FFFFFF;
     /* position: fixed; */
-    margin-top: 4em;
+    margin-top: 2em;
 }
 
 .center_dom>div {
@@ -585,6 +583,9 @@ nav>ul>li#sel:hover:after {
         transform: scale(.8);
         margin-left: -12%;
     }
+    body, .top-head, .center_dom{
+        margin-top: 0;
+    }
 
    .logo {
         width: 320px;
@@ -607,4 +608,13 @@ nav>ul>li#sel:hover:after {
    .center_dom {
        margin-top: 0;
    }
+}
+
+@media screen and (max-height:768px) and (max-width:1366px) {
+    .center_dom {
+        margin-top: 0;
+    }
+    /* .top-head {
+        margin-top: 0%;
+    } */
 }

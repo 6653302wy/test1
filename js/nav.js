@@ -10,7 +10,6 @@ $(function(){
         function () { $(".user_operate>ul").show(); },
         function () { $(".user_operate>ul").hide(); });
 
-    checkWindow();
     checkFullScreenHdr();
     
     $(".circle li:eq(0)").click(function () {
@@ -206,21 +205,21 @@ var mapClass = (function () {
 }
 
 //IE9浏览器下选转，缩放
-function doRotateScale(dom, angle, scale){
-    angle = parseFloat(angle) || 0;
-        scale = parseFloat(scale) || 1;
-        if (typeof (angle) === "number") {
-            var rad = angle * (Math.PI / 180);
-            var m11 = Math.cos(rad) * scale,
-                m12 = -1 * Math.sin(rad) * scale,
-                m21 = Math.sin(rad) * scale,
-                m22 = m11;
-            if (!dom.style.Transform) {
-                dom.style.filter =  "progid:DXImageTransform.Microsoft.Matrix(M11=" + m11 + ",M12=" + m12 + ",M21=" + m21 +
-                ",M22=" + m22 + ",SizingMethod='auto expand')";
-            }
-        }
-}
+// function doRotateScale(dom, angle, scale){
+//     angle = parseFloat(angle) || 0;
+//         scale = parseFloat(scale) || 1;
+//         if (typeof (angle) === "number") {
+//             var rad = angle * (Math.PI / 180);
+//             var m11 = Math.cos(rad) * scale,
+//                 m12 = -1 * Math.sin(rad) * scale,
+//                 m21 = Math.sin(rad) * scale,
+//                 m22 = m11;
+//             if (!dom.style.Transform) {
+//                 dom.style.filter =  "progid:DXImageTransform.Microsoft.Matrix(M11=" + m11 + ",M12=" + m12 + ",M21=" + m21 +
+//                 ",M22=" + m22 + ",SizingMethod='auto expand')";
+//             }
+//         }
+// }
 
 
 function checkWindow(){
@@ -232,11 +231,11 @@ function checkWindow(){
         $('.center_dom')[0].style.marginTop = 0;
     }else{
         //在屏幕分辨率高度768像素的情况下，窗口的高度还需减去浏览器头部一些东西大概100px
-        if($(window).height() < 680){
+        if($(window).height() < 690){
             $('body')[0].style.marginTop = 0;
             $('.top-head')[0].style.marginTop = 0;
 
-            if($(window).height() <= 630)$('.center_dom')[0].style.marginTop = 0;
+            if($(window).height() <= 640)$('.center_dom')[0].style.marginTop = 0;
             else $('.center_dom')[0].style.marginTop = 2 + 'em';
         }else{
             $('.center_dom')[0].style.marginTop = 6 + 'em';
@@ -252,8 +251,8 @@ function onFullScreenView(){
         checkWindow();
     }
     if(isFullScreen){
-        $('.center_dom')[0].style.marginTop = 7 + 'em';
-        $('body')[0].style.marginTop = 3 + 'em';
+        $('.center_dom')[0].style.marginTop = 5 + 'em';
+        $('body')[0].style.marginTop = 2 + 'em';
     }else{
         setTimeout(test, 800); //直接调用checkWindow setTimeout不起作用？
     }
@@ -268,15 +267,15 @@ function checkFullScreenHdr(){
             fullScreen(el); //进入全屏
         }
     });
+    exitFullSCreen();//退出全屏
     
     //阻止用户自己按f11的全屏动作
     $(document).on('keydown', function(e){
         if(e && e.keyCode == 122){
             e.preventDefault();  //阻止F11默认动作
+            return;
         }
     });
-
-    exitFullSCreen();//退出全屏
 }
 
 // 判断各种浏览器，找到正确的方法
